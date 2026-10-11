@@ -119,6 +119,10 @@
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">ReAlign-VLA</h2>
+      <div class="figure-block">
+        <img src="static/images/overview.jpg" alt="Overview of ReAlign-VLA" loading="lazy">
+        <p class="figure-caption">Overview of ReAlign-VLA. (a) Corruption distorts policy-facing tokens, while clean features restore behavior. (b) ReAlign predicts a token-adaptive low-rank residual before the frozen VLA policy.</p>
+      </div>
       <div class="content has-text-justified">
         <p>
           ReAlign-VLA inserts a lightweight module between the frozen visual encoder and the frozen policy, and corrects only the corrupted agent-view tokens. From the current frame, an attention-pooling branch builds a small set of shared feature-space correction directions, and a token-wise MLP decides how strongly each token combines them. The result is a <b>token-adaptive low-rank residual</b> added to the corrupted features before they enter the projector. ReAlign is trained offline on clean source-domain frames paired with synthetic corruptions, using clean features as targets with cosine, normalized reconstruction and intervention-magnitude terms. It needs no action labels, no policy gradients and no test-time adaptation.
