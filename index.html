@@ -4,24 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="title" content="ReAlign-VLA: Token-Adaptive Low-Rank Realignment for Robust Vision-Language-Action Policies">
-  <meta name="description" content="ReAlign-VLA restores corrupted visual features of a frozen VLA with token-adaptive low-rank residuals, recovering robust manipulation without relearning the policy.">
-  <meta name="keywords" content="ReAlign-VLA, vision-language-action, VLA robustness, visual corruption, feature realignment, OpenVLA-OFT, LIBERO">
+  <meta name="title" content="StreamZip: Budget-Conditioned Post-Training for Streaming Video Language Models">
+  <meta name="description" content="StreamZip adapts a shared video VLM to multiple visual-memory budgets, addressing the Compression-Answerer Mismatch in streaming video QA.">
+  <meta name="keywords" content="StreamZip, streaming video, video VLM, visual token compression, budget-conditioned post-training, distillation">
   <!-- Under review: no author / affiliation / citation metadata -->
   <meta name="robots" content="noindex, nofollow">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="ReAlign-VLA: Token-Adaptive Low-Rank Realignment for Robust Vision-Language-Action Policies">
-  <meta property="og:description" content="ReAlign-VLA restores corrupted visual features of a frozen VLA with token-adaptive low-rank residuals, recovering robust manipulation without relearning the policy.">
+  <meta property="og:title" content="StreamZip: Budget-Conditioned Post-Training for Streaming Video Language Models">
+  <meta property="og:description" content="StreamZip adapts a shared video VLM to multiple visual-memory budgets, addressing the Compression-Answerer Mismatch in streaming video QA.">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ReAlign-VLA: Token-Adaptive Low-Rank Realignment for Robust Vision-Language-Action Policies">
-  <meta name="twitter:description" content="ReAlign-VLA restores corrupted visual features of a frozen VLA with token-adaptive low-rank residuals, recovering robust manipulation without relearning the policy.">
+  <meta name="twitter:title" content="StreamZip: Budget-Conditioned Post-Training for Streaming Video Language Models">
+  <meta name="twitter:description" content="StreamZip adapts a shared video VLM to multiple visual-memory budgets, addressing the Compression-Answerer Mismatch in streaming video QA.">
   <meta name="theme-color" content="#2563eb">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>ReAlign-VLA: Token-Adaptive Low-Rank Realignment | Under Review</title>
+  <title>StreamZip: Budget-Conditioned Post-Training | Under Review</title>
 
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico?v=2">
   <link rel="apple-touch-icon" href="static/images/favicon.ico?v=2">
@@ -57,7 +57,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">ReAlign-VLA: Token-Adaptive Low-Rank Realignment for Robust Vision-Language-Action Policies</h1>
+            <h1 class="title is-1 publication-title">StreamZip: Budget-Conditioned Post-Training for Streaming Video Language Models</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">Anonymous Authors</span>
             </div>
@@ -67,13 +67,13 @@
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://drive.google.com/file/d/1kDi3nQ7KCgOuo5crqtfzHk-1eOBPemM5/view?usp=sharing" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://drive.google.com/file/d/178BAtfm1w8ew_JIHGf-5oSfQhsP3njL7/view?usp=sharing" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
                     <span>Paper</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/herbwood/realign-vla" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/herbwood/streamzip" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
@@ -93,7 +93,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Vision&ndash;language&ndash;action (VLA) policies can fail sharply under visual corruption despite strong nominal performance. We show that such failures can arise from distorted policy-facing visual representations while the underlying manipulation capability remains recoverable. Motivated by this finding, we introduce <b>ReAlign-VLA</b>, a lightweight post-encoder framework that restores corrupted agent-view features using token-adaptive low-rank residuals while keeping the pretrained VLA frozen. ReAlign is trained from paired clean and synthetically corrupted source-domain observations and requires neither action supervision nor test-time adaptation. On LIBERO-Spatial Fresh Noise-50, ReAlign achieves 94% success, substantially outperforming frozen OpenVLA-OFT and matched feature-adaptation baselines while preserving clean performance. The same Spatial-trained adapter reaches 96% under noise on LIBERO-Object without Object-specific adaptation. These results show that realigning corrupted visual representations can recover robust manipulation without relearning the underlying policy.
+              Long and streaming video understanding requires efficient visual memory, yet existing compression methods primarily focus on which visual tokens to retain rather than how models reason over compressed evidence. We identify this challenge as <i>Compression&ndash;Answerer Mismatch</i> and propose <b>StreamZip</b>, a budget-conditioned post-training framework that adapts a shared video VLM across multiple visual-memory budgets. StreamZip combines deterministic causal retention, explicit budget conditioning, and selective full-context distillation to improve answering under compressed visual contexts. On an OVO-Bench-derived corpus, StreamZip improves average compressed multiple-choice accuracy by 6.84%p under source-disjoint three-fold evaluation. On a separate internal validation set, StreamZip achieves 51.60% average accuracy, outperforming the strongest adapted compression baseline by 5.99%p. Furthermore, at a 25% visual-token budget, StreamZip achieves higher accuracy than PruneVid with approximately 42% lower warm query latency. These results highlight answerer adaptation as a complementary direction to visual token compression.
             </p>
           </div>
         </div>
@@ -103,14 +103,10 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Analysis on Visual-Corruption Failures</h2>
-      <div class="figure-block">
-        <img src="static/images/fig_analysis.png" alt="Analysis of visual-corruption failures in frozen OpenVLA-OFT" loading="lazy">
-        <p class="figure-caption">(a) Corruption induces view-specific representation drift. (b) Clean-feature intervention restores failed behavior. (c) Similar feature fidelity can yield different behavioral recovery.</p>
-      </div>
+      <h2 class="title is-3 has-text-centered">StreamZip</h2>
       <div class="content has-text-justified">
         <p>
-          We analyze frozen OpenVLA-OFT on LIBERO-Spatial under sensor corruptions. As severity increases, the agent-view representation drifts steadily away from its clean counterpart, while the uncorrupted wrist stream stays intact (a). Replacing only the corrupted agent-view features with clean ones turns every failed episode into a success, ending at exactly the same step as the clean rollout (b): the manipulation skill is still there, but the policy cannot reach it through the corrupted representation. A privileged channel-wise affine correction shared across tokens recovers only one of four failures, whereas token-varying corrections recover far more (c), showing that restoration must be token-specific.
+          Rather than designing a better token selector, StreamZip adapts the answerer to compressed evidence. A fixed, deterministic causal retention process keeps a nested, temporally balanced subset of visual tokens for each incoming chunk, so that discarded evidence never reappears. Each training example is viewed under several budgets (100%, 50%, 25% and 12.5%), and a single shared answerer is trained across all of them with a learnable <b>budget embedding</b> inserted between the visual context and the question, using LoRA on the upper language-model layers. The answerer is optimized with a margin-based answer objective and <b>selective full-context distillation</b>, where a frozen teacher that sees the uncompressed prefix transfers knowledge only when its prediction is correct and confident.
         </p>
       </div>
 
@@ -118,10 +114,14 @@
   </section>
   <section class="section hero is-light">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">ReAlign-VLA</h2>
+      <h2 class="title is-3 has-text-centered">Results</h2>
+      <div class="figure-block">
+        <img src="static/images/table1.png" alt="Matched internal compression comparison across visual-token retention ratios" loading="lazy">
+        <p class="figure-caption">Source-video macro multiple-choice accuracy (%) with an identical Qwen3-VL-8B backbone and matched visual-token budgets.</p>
+      </div>
       <div class="content has-text-justified">
         <p>
-          ReAlign-VLA inserts a lightweight module between the frozen visual encoder and the frozen policy, and corrects only the corrupted agent-view tokens. From the current frame, an attention-pooling branch builds a small set of shared feature-space correction directions, and a token-wise MLP decides how strongly each token combines them. The result is a <b>token-adaptive low-rank residual</b> added to the corrupted features before they enter the projector. ReAlign is trained offline on clean source-domain frames paired with synthetic corruptions, using clean features as targets with cosine, normalized reconstruction and intervention-magnitude terms. It needs no action labels, no policy gradients and no test-time adaptation.
+          Under matched backbones and budgets, StreamZip reaches 51.60% average accuracy across the 50%, 25% and 12.5% budgets, outperforming the strongest adapted compression baseline (PruneVid) by 5.99%p. It also achieves the lowest ground-truth NLL, and the gap is largest at the most restrictive 12.5% budget.
         </p>
       </div>
 
@@ -129,29 +129,14 @@
   </section>
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Results</h2>
-      <div class="figure-block">
-        <img src="static/images/table1.png" alt="Closed-loop robustness results on LIBERO-Spatial and LIBERO-Object" loading="lazy">
-        <p class="figure-caption">(a) Task success rate (%) on LIBERO-Spatial and LIBERO-Object; Hard is the L4 subset of Spatial Fresh Noise-50. (b) Breakdown of Spatial Fresh Noise-50 by corruption family.</p>
-      </div>
-      <div class="content has-text-justified">
-        <p>
-          On LIBERO-Spatial Fresh Noise-50, ReAlign-VLA reaches 94% success, compared with 64% for frozen OpenVLA-OFT and 76% for the matched FLA baseline, and 85% on the severe L4 subset, while keeping clean performance. The Spatial-trained adapter transfers directly to LIBERO-Object, reaching 96% under noise with 100% clean success.
-        </p>
-      </div>
-
-    </div>
-  </section>
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
       <div class="figure-block">
-        <img src="static/images/fig_qualitative.jpg" alt="Rollouts of frozen OpenVLA-OFT and ReAlign-VLA under severe blur" loading="lazy">
-        <p class="figure-caption">Rollouts under severe blur (inset: corrupted agent view). Frozen OpenVLA-OFT fails, while ReAlign-VLA completes the task.</p>
+        <img src="static/images/fig_qualitative.png" alt="Qualitative comparison under full and 25% visual-memory budgets" loading="lazy">
+        <p class="figure-caption">With full visual context, both models answer correctly. Under a 25% budget, Frozen Recency fails while StreamZip keeps the correct answer.</p>
       </div>
       <div class="content has-text-justified">
         <p>
-          Under the same severe blur, the frozen policy approaches the object but never completes the task, whereas ReAlign-VLA places it in the basket in fewer than half the steps.
+          When only a quarter of the visual tokens are retained, the frozen model loses the answer, whereas StreamZip still answers correctly from the reduced evidence.
         </p>
       </div>
 
